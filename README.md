@@ -1,2 +1,2 @@
-# goit-markup-js-02
+# goit-markup-js-03
 This is my first project 
