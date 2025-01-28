@@ -1,17 +1,39 @@
-function formatMessage(message, maxLength) {
-  // Eğer mesaj uzunluğu maxLength'e eşit veya daha kısa ise mesajı olduğu gibi döndür
-  if (message.length <= maxLength) {
-      return message;
-  } else {
-      // Mesajı kısalt ve sonuna "..." ekle
-      return message.slice(0, maxLength) + "...";
+function calcAverageCalories(days) {
+  // Eğer dizi boşsa 0 döndür
+  if (days.length === 0) {
+    return 0;
   }
+
+  // Kalori toplamını hesapla
+  const totalCalories = days.reduce((total, day) => total + day.calories, 0);
+
+  // Gün sayısına bölerek ortalama hesapla
+  return totalCalories / days.length;
 }
 
-// Testler
-console.log(formatMessage("Curabitur ligula sapien", 16));  // "Curabitur ligula..."
-console.log(formatMessage("Curabitur ligula sapien", 23));  // "Curabitur ligula sapien"
-console.log(formatMessage("Vestibulum facilisis purus nec", 20));  // "Vestibulum facilisis..."
-console.log(formatMessage("Vestibulum facilisis purus nec", 30));  // "Vestibulum facilisis purus nec"
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15));  // "Nunc sed turpis..."
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41));  // "Nunc sed turpis a felis in nunc fringilla"
+// Test kodu
+console.log(
+  calcAverageCalories([
+    { day: "monday", calories: 3010 },
+    { day: "tuesday", calories: 3200 },
+    { day: "wednesday", calories: 3120 },
+    { day: "thursday", calories: 2900 },
+    { day: "friday", calories: 3450 },
+    { day: "saturday", calories: 3280 },
+    { day: "sunday", calories: 3300 },
+  ])
+); // 3180
+
+console.log(
+  calcAverageCalories([
+    { day: "monday", calories: 2040 },
+    { day: "tuesday", calories: 2270 },
+    { day: "wednesday", calories: 2420 },
+    { day: "thursday", calories: 1900 },
+    { day: "friday", calories: 2370 },
+    { day: "saturday", calories: 2280 },
+    { day: "sunday", calories: 2610 },
+  ])
+); // 2270
+
+console.log(calcAverageCalories([])); // 0

@@ -1,18 +1,13 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  // Siparişin toplam tutarını hesapla
-  const totalPrice = quantity * pricePerDroid;
-  
-  // Müşterinin bakiyesi yeterli mi kontrol et
-  if (totalPrice > customerCredits) {
-      return "Insufficient funds!";
-  } else {
-      return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-  }
+function isEnoughCapacity(products, containerSize) {
+  // Ürünlerin toplam miktarını hesapla
+  const totalProducts = Object.values(products).reduce((sum, amount) => sum + amount, 0);
+
+  // Toplam miktar konteyner kapasitesine eşit veya küçükse true, aksi halde false döndür
+  return totalProducts <= containerSize;
 }
 
-// Testler
-console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 5000, 8000));  // "Insufficient funds!"
-console.log(makeTransaction(8, 2000, 10000));  // "Insufficient funds!"
-console.log(makeTransaction(10, 500, 5000));   // "You ordered 10 droids worth 5000 credits!"
+// Fonksiyonu test etmek için verilen örnek kodlar
+console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
+console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
+console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatos: 3 }, 14)); // true
+console.log(isEnoughCapacity({ apples: 18, potatos: 5, oranges: 2 }, 7)); // false
