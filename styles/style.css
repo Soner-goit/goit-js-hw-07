@@ -1,0 +1,47 @@
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .gallery-item {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+  
+/* task-6 */
+/* Kutuların stilini belirleme */
+#boxes div {
+  margin-bottom: 10px;
+}
+
+/* Button stilleri */
+button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input {
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Controls div'i */
+#controls {
+  margin-bottom: 20px;
+}

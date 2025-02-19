@@ -1,37 +1,7 @@
-class StringBuilder {
-  #value;
+const inputEl = document.querySelector("#name-input");
+const outputEl = document.querySelector("#name-output");
 
-  constructor(initialValue) {
-    this.#value = initialValue;
-  }
-
-  getValue() {
-    return this.#value;
-  }
-
-  padStart(str) {
-    this.#value = `${str}${this.#value}`;
-  }
-
-  padEnd(str) {
-    this.#value += str;
-  }
-
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
-  }
-}
-
-// Örnek başlatma ve test kodları
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+inputEl.addEventListener("input", function (event) {
+    const trimmedValue = event.target.value.trim();
+    outputEl.textContent = trimmedValue || "Anonymous";
+});
